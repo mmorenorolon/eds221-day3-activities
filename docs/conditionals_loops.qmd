@@ -1,0 +1,60 @@
+---
+title: "conditionals-loops"
+author: "Melannie Moreno Rolon"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+```
+
+# Conditional statements & for loops
+
+## Conditional statements
+
+```{r}
+# Task 1
+pm2_5 <- 48
+
+if (pm2_5 < 100){
+  print("Low to moderate risk")
+} else if (pm2_5 == 100 & pm2_5 < 150) {
+  print("Unhealthy for sensitive groups")
+} else (pm2_5 >= 150) 
+  print("Health risk present")
+
+```
+
+```{r}
+#Task 2
+species <- "blue whale"
+
+if (str_detect(species, "whale")) {
+  print("You found a whale!")
+}
+```
+
+```{r}
+#Task 3
+base_burrito <- 6.50
+main_ingredient <- "veggie"
+
+# A veggie burrito is the cost of a base burrito
+# A chicken burrito costs 3.00 more than a base burrito
+# A steak burrito costs 3.25 more than a base burrito
+
+if(main_ingredient == "veggie") {
+  print(base_burrito)
+} else if (main_ingredient == "chicken") {
+  
+}
+```
+
+## For loops
+```{r}
+#Task 4
+fish <- c(8, 10, 12, 23)
+
+```
+
