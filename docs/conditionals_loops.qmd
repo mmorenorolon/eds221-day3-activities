@@ -6,6 +6,7 @@ editor: visual
 ---
 
 ```{r}
+
 library(tidyverse)
 ```
 
@@ -19,11 +20,10 @@ pm2_5 <- 48
 
 if (pm2_5 < 100){
   print("Low to moderate risk")
-} else if (pm2_5 == 100 & pm2_5 < 150) {
+} else if (pm2_5 >= 100 & pm2_5 < 150) {
   print("Unhealthy for sensitive groups")
 } else (pm2_5 >= 150) 
   print("Health risk present")
-
 ```
 
 ```{r}
@@ -44,11 +44,19 @@ main_ingredient <- "veggie"
 # A chicken burrito costs 3.00 more than a base burrito
 # A steak burrito costs 3.25 more than a base burrito
 
+#if-else if else statement
 if(main_ingredient == "veggie") {
   print(base_burrito)
-} else if (main_ingredient == "chicken") {
-  
-}
+} else if (main_ingredient == "chicken") { 
+  print(base_burrito + 3)
+} else if (main_ingredient == "steak") {
+  print(base_burrito + 3.25)}
+
+#Switch statement
+switch(main_ingredient,
+       "veggie" = print(base_burrito),
+       "chicken" = print(base_burrito + 3),
+       "steak" = print(base_burrito + 3.25))
 ```
 
 ## For loops
