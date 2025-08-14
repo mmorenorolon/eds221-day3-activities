@@ -1,0 +1,56 @@
+---
+title: "toolik_chem"
+author: "Melannie Moreno Rolon"
+format: html
+editor: visual
+---
+
+## Real data
+```{r setup}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+
+```{r}
+library(tidyverse)
+library(here)
+library(janitor)
+```
+
+```{r}
+#read the data and update variables to lowercase snake
+toolik_biochem <- read_csv(here::here("data", "2011_Kling_Akchem.csv"), na = ".") %>% 
+  clean_names()
+view(toolik_biochem)    #opens a tab to view dataset
+summary(toolik_biochem) #Summary of dataset to view the number of NA's
+```
+
+```{r}
+#subset from the “Toolik Inlet” site, and that contains the variable for pH, dissolved organic carbon (DOC), and total dissolved nitrogen (TDN)
+inlet_biochem <- subset(toolik_biochem, site == "Toolik Inlet") %>% select(p_h, doc_u_m, tdn_u_m)
+view(inlet_biochem)
+```
+
+```{r}
+#Write a for loop from scratch to calculate the mean for each column
+for (i in seq_along(inlet_biochem)) { #go through each column (seq_along)
+  mean_value <- mean(inlet_biochem[[i]], na.rm = TRUE) #access numeric vectors 
+  # [[]] for each column
+  print(paste(names(inlet_biochem)[i], ":", mean_value)) #names() to grab the 
+  # column names for a variable, followed by a colon, and the result of the mean 
+  # value for that variable
+}
+```
+
+
+```{r}
+#mean value of each column in inlet_biochem: part b
+apply(X = inlet_biochem, MARGIN = 2, FUN = mean, na.rm = TRUE)
+
+```
+```{r}
+##mean value of each column in inlet_biochem: c
+colMeans(inlet_biochem, na.rm = TRUE)
+```
+
+
