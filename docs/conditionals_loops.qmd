@@ -62,7 +62,36 @@ switch(main_ingredient,
 ## For loops
 ```{r}
 #Task 4
-fish <- c(8, 10, 12, 23)
 
+  #Creating a vector for the counts of different fish types in a fish tank 
+  #(goldfish, tetras, guppies, and mollies, respectively)
+fish_count <- c(8, 10, 12, 23)
+
+  #Naming the previous vector (Assigning each vector value a name(string)"
+names(fish_count) <- c("goldfish", "tetras", "guppies", "mollies")
+fish_count
+
+  #Sum of fish
+fish_total = sum(fish_count)
+fish_total
+
+for (species in seq_along(fish_count)) {
+  fish_prop = fish_count[species]/fish_total #Proportion calculation
+  #Prints the fish type alongside the answer to the calculation
+  print(paste(names(fish_count[species]), ":", round(fish_prop, 3)))
+}
+
+
+
+```
+
+```{r}
+#Task 5
+
+for (i in seq_along(month.name)) { 
+  print(paste(month.name[i], "is month", i)) #index the vector name gives the 
+                                            #values inside, writing "i" alone
+                                            #gives the index number  
+}
 ```
 
